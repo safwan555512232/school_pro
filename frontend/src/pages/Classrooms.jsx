@@ -133,7 +133,7 @@ const Classrooms = () => {
       <table>
         <thead>
           <tr>
-            <th>Name</th>
+            <th>Class Name</th>
             <th>Capacity</th>
             <th>Actions</th>
           </tr>
