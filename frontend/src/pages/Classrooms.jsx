@@ -134,7 +134,7 @@ const Classrooms = () => {
         <thead>
           <tr>
             <th>Class Name</th>
-            <th>Capacity</th>
+            <th>Class Capacity</th>
             <th>Actions</th>
           </tr>
         </thead>
