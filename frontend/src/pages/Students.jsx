@@ -16,7 +16,7 @@ const Students = () => {
   // Fetch students from API
   const fetchStudents = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/students');
+      const response = await axios.get('https://school-project-server-phi.vercel.app/api/students');
       setStudents(response.data);
     } catch (error) {
       console.error('Error fetching students:', error);
@@ -49,7 +49,7 @@ const Students = () => {
           if (result.isConfirmed) {
             // UPDATE API CALL
             const response = await axios.put(
-              `http://localhost:5000/api/students/${formData.id}`,
+              `https://school-project-server-phi.vercel.app/api/students/${formData.id}`,
               formData
             );
   
@@ -63,7 +63,7 @@ const Students = () => {
         });
       } else {
         // ADD API CALL
-        const response = await axios.post('http://localhost:5000/api/students', formData);
+        const response = await axios.post('https://school-project-server-phi.vercel.app/api/students', formData);
         if (response.status === 201) {
           Swal.fire('Added!', 'New Student added successfully!', 'success');
           setFormData({ id: '', name: '', grade: '' });
@@ -100,7 +100,7 @@ const Students = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`http://localhost:5000/api/students/${id}`);
+          await axios.delete(`https://school-project-server-phi.vercel.app/api/students/${id}`);
           setStudents((prevStudents) => prevStudents.filter((student) => student._id !== id));
           Swal.fire('Deleted!', 'The student has been deleted.', 'success');
         } catch (error) {

@@ -16,7 +16,7 @@ const Home = () => {
     // Fetch counts from the backend API
     const fetchCounts = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/home/counts'); // Replace with your API endpoint
+        const response = await axios.get('https://school-project-server-phi.vercel.app/api/home/counts'); // Replace with your API endpoint
         setCounts(response.data);
       } catch (error) {
         console.error('Error fetching counts:', error);
