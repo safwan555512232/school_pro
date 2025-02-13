@@ -21,7 +21,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/admin/login', formData);
+      const response = await axios.post('https://school-project-server-phi.vercel.app/api/admin/login', formData);
       console.log(response.data);
       localStorage.setItem('token', response.data.token);
       //alert('Login successful!');
