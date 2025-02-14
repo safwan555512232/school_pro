@@ -15,7 +15,7 @@ const Staff = () => {
   // Fetch staff members from API
   const fetchStaff = async () => {
     try {
-      const response = await axios.get('https://school-project-server-phi.vercel.app/api/staff');
+      const response = await axios.get('https://school-management-server-lovat.vercel.app/api/staff');
       setStaff(response.data);
     } catch (error) {
       console.error('Error fetching staff:', error);
@@ -50,7 +50,7 @@ const Staff = () => {
           if (result.isConfirmed) {
             // Update staff member
             const response = await axios.put(
-              `https://school-project-server-phi.vercel.app/api/staff/${formData.id}`,
+              `https://school-management-server-lovat.vercel.app/api/staff/${formData.id}`,
               formData
             );
             if (response.status === 200) {
@@ -63,7 +63,7 @@ const Staff = () => {
         });
       } else {
         // Add new staff member
-        const response = await axios.post('https://school-project-server-phi.vercel.app/api/staff', formData);
+        const response = await axios.post('https://school-management-server-lovat.vercel.app/api/staff', formData);
         if (response.status === 201) {
           Swal.fire('Added!', 'New staff member added successfully.', 'success');
           setFormData({ id: '', name: '', role: '' });
@@ -99,7 +99,7 @@ const Staff = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`https://school-project-server-phi.vercel.app/api/staff/${id}`);
+          await axios.delete(`https://school-management-server-lovat.vercel.app/api/staff/${id}`);
           setStaff((prevStaff) => prevStaff.filter((member) => member._id !== id));
           Swal.fire('Deleted!', 'The staff member has been deleted.', 'success');
         } catch (error) {

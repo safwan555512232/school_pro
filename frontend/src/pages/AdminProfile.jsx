@@ -16,7 +16,7 @@ const AdminProfile = () => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('https://school-project-server-phi.vercel.app/api/user/profile', {
+        const response = await axios.get('https://school-management-server-lovat.vercel.app/api/user/profile', {
           headers: { Authorization: `Bearer ${token}` },
         });
         setProfile(response.data);
@@ -53,7 +53,7 @@ const AdminProfile = () => {
         try {
           const token = localStorage.getItem('token');
           const response = await axios.put(
-            'https://school-project-server-phi.vercel.app/api/user/profile',
+            'https://school-management-server-lovat.vercel.app/api/user/profile',
             profile,
             {
               headers: { Authorization: `Bearer ${token}` },

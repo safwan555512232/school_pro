@@ -15,7 +15,7 @@ const Facilities = () => {
   // Fetch facilities from API
   const fetchFacilities = async () => {
     try {
-      const response = await axios.get('https://school-project-server-phi.vercel.app/api/facilities');
+      const response = await axios.get('https://school-management-server-lovat.vercel.app/api/facilities');
       setFacilities(response.data);
     } catch (error) {
       console.error('Error fetching facilities:', error);
@@ -50,7 +50,7 @@ const Facilities = () => {
           if (result.isConfirmed) {
             // Update facility
             const response = await axios.put(
-              `https://school-project-server-phi.vercel.app/api/facilities/${formData.id}`,
+              `https://school-management-server-lovat.vercel.app/api/facilities/${formData.id}`,
               formData
             );
             if (response.status === 200) {
@@ -63,7 +63,7 @@ const Facilities = () => {
         });
       } else {
         // Add new facility
-        const response = await axios.post('https://school-project-server-phi.vercel.app/api/facilities', formData);
+        const response = await axios.post('https://school-management-server-lovat.vercel.app/api/facilities', formData);
         if (response.status === 201) {
           Swal.fire('Added!', 'New facility added successfully.', 'success');
           setFormData({ id: '', name: '', description: '' });
@@ -99,7 +99,7 @@ const Facilities = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`https://school-project-server-phi.vercel.app/api/facilities/${id}`);
+          await axios.delete(`https://school-management-server-lovat.vercel.app/api/facilities/${id}`);
           setFacilities((prevFacilities) =>
             prevFacilities.filter((facility) => facility._id !== id)
           );

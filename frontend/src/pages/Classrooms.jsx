@@ -16,7 +16,7 @@ const Classrooms = () => {
   // Fetch classrooms from API
   const fetchClassrooms = async () => {
     try {
-      const response = await axios.get('https://school-project-server-phi.vercel.app/api/classrooms');
+      const response = await axios.get('https://school-management-server-lovat.vercel.app/api/classrooms');
       setClassrooms(response.data);
     } catch (error) {
       console.error('Error fetching classrooms:', error);
@@ -47,7 +47,7 @@ const Classrooms = () => {
         }).then(async (result) => {
           if (result.isConfirmed) {
             const response = await axios.put(
-              `https://school-project-server-phi.vercel.app/api/classrooms/${formData.id}`,
+              `https://school-management-server-lovat.vercel.app/api/classrooms/${formData.id}`,
               formData
             );
             if (response.status === 200) {
@@ -59,7 +59,7 @@ const Classrooms = () => {
           }
         });
       } else {
-        const response = await axios.post('https://school-project-server-phi.vercel.app/api/classrooms', formData);
+        const response = await axios.post('https://school-management-server-lovat.vercel.app/api/classrooms', formData);
         if (response.status === 201) {
           Swal.fire('Added!', 'New Classroom added successfully!', 'success');
           setFormData({ id: '', name: '', capacity: '' });
@@ -95,7 +95,7 @@ const Classrooms = () => {
     }).then(async (result) => {
       if (result.isConfirmed) {
         try {
-          await axios.delete(`https://school-project-server-phi.vercel.app/api/classrooms/${id}`);
+          await axios.delete(`https://school-management-server-lovat.vercel.app/api/classrooms/${id}`);
           setClassrooms((prevClassrooms) => prevClassrooms.filter((classroom) => classroom._id !== id));
           Swal.fire('Deleted!', 'The classroom has been deleted.', 'success');
         } catch (error) {

@@ -29,7 +29,7 @@ const Signup = () => {
     }
 
     try {
-      const response = await axios.post('https://school-project-server-phi.vercel.app/api/admin/signup', {
+      const response = await axios.post('https://school-management-server-lovat.vercel.app/api/admin/signup', {
         name: formData.name,
         email: formData.email,
         password: formData.password,
