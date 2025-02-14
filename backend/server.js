@@ -18,14 +18,27 @@ connectDB();
 
 const app = express();
 
-// Middleware
-app.use(express.json());
+// CORS Configuration
+const allowedOrigins = [
+    "https://school-management-frontend-inky.vercel.app",
+    "http://localhost:5173", // Add your local frontend URL for development
+];
+
 app.use(
     cors({
-        origin: process.env.FRONTEND_URL,
+        origin: function (origin, callback) {
+            if (!origin || allowedOrigins.includes(origin)) {
+                callback(null, true);
+            } else {
+                callback(new Error("Not allowed by CORS"));
+            }
+        },
         credentials: true,
     })
 );
+
+// Middleware
+app.use(express.json());
 app.use(cookieParser());
 
 // Logging middleware for debugging
