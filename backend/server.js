@@ -22,7 +22,7 @@ const app = express();
 app.use(express.json());
 app.use(
     cors({
-        origin: "https://school-management-frontend-inky.vercel.app",
+        origin: process.env.APPLICATION_URL,
         credentials: true,
     })
 );
